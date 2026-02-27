@@ -4,9 +4,10 @@ namespace App\Http\Controllers;
 use Illuminate\Validation\Rules\Password;
 use Illuminate\Http\Request;
 use App\Models\User;
-use App\Http\Requests\StorePostRequest;
+use App\Http\Requests\Authentication\RegisterRequest;
+use App\Http\Requests\Authentication\LoginRequest;
 
-class PostController extends Controller
+class AuthenticationController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,16 +20,13 @@ class PostController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StorePostRequest $request)
+    public function store(RegisterRequest $request)
     {
 
          $insert=User::create($request->validated());
          if($insert){
             return 'data inserted';
-        }
-        else{
-            return 'data not';
-        }
+    }
     }
     
 

@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PostController;
+use App\Http\Controllers\AuthenticationController;
 
 Route::get('/user', function (Request $request) {
     return $request->user();
@@ -10,7 +10,7 @@ Route::get('/user', function (Request $request) {
 Route::fallback(function(){
     return 'Invalid Url';
 });
-Route::post('/register',[PostController::class,'store']);
-Route::get('/alldata',[PostController::class,'index']);
+Route::post('/register',[AuthenticationController::class,'store']);
+Route::get('/alldata',[AuthenticationController::class,'index']);
 
 
