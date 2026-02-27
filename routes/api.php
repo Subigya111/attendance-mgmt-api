@@ -10,7 +10,7 @@ Route::get('/user', function (Request $request) {
 Route::fallback(function(){
     return 'Invalid Url';
 });
-Route::post('/register',[AuthenticationController::class,'store']);
-Route::get('/alldata',[AuthenticationController::class,'index']);
-
+Route::post('/register',[AuthenticationController::class,'register']);
+Route::post('/login',[AuthenticationController::class,'login']);
+Route::post('/logout',[AuthenticationController::class,'logout']);
 
