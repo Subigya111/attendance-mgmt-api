@@ -34,7 +34,8 @@ class AuthenticationController extends Controller
         $deviceName=$request->header('User-agent','Unknown Device');
         $token = $user->createToken($deviceName)->plainTextToken;
         return response()->json([
-            'message'=>'You are logged in'
+            'message'=>'You are logged in',
+            'token'=>$token
         ],200);
         
     }
