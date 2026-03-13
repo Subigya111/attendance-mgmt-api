@@ -17,7 +17,7 @@ class AuthenticationController extends Controller
          $user=User::create($validated);
          return response()->json([
             'message'=>'User registered',
-            'user' => $user,
+            'role' => $user['role'],
         ], 201);
     }
 
