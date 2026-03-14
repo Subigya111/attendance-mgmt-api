@@ -13,7 +13,12 @@ return new class extends Migration
     {
         Schema::create('start_classes', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->created_at();;
+            $table->expires_at();
+            $table->subject();
+            $table->batch();
+            $table->teacher_id();
+            $table->class_token();
         });
     }
 

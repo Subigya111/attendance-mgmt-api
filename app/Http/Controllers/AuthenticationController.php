@@ -21,7 +21,7 @@ class AuthenticationController extends Controller
         ], 201);
     }
 
-    
+      
 
 
     public function login(LoginRequest $request)
