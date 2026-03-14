@@ -13,7 +13,9 @@ return new class extends Migration
     {
         Schema::create('attendances', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->class_id();
+            $table->student_id();
+            $table->scanned_at();
         });
     }
 
