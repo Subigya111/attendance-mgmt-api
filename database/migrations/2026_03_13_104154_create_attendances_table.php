@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('attendances', function (Blueprint $table) {
             $table->id();
-            $table->class_id();
-            $table->student_id();
+            $table->foreignId('class_id')->constrained('start_classes');
+            $table->foreignId('student_id')->constrained('users');
             $table->scanned_at();
         });
     }

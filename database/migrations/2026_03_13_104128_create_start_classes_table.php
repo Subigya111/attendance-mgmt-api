@@ -17,7 +17,7 @@ return new class extends Migration
             $table->expires_at();
             $table->subject();
             $table->batch();
-            $table->teacher_id();
+            $table->foreignId('teacher_id')->constrained('users');
             $table->class_token();
         });
     }
