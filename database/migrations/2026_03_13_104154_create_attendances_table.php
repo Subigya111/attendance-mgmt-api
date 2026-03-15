@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('class_id')->constrained('start_classes');
             $table->foreignId('student_id')->constrained('users');
-            $table->scanned_at();
+            $table->timestamp('scanned_at')->useCurrent();
         });
     }
 
