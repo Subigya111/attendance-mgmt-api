@@ -54,4 +54,7 @@ class User extends Authenticatable
         return $this->hasMany(StartClass::class,'teacher_id');
 
     }
+    public function attendances():HasMany{
+        return $this->hasMany(Attendance::class,'student_id');
+    }
 }
