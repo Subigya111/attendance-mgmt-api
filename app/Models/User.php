@@ -9,9 +9,11 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
+
 class User extends Authenticatable
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
+    public $timestamps = false;
     use HasFactory,HasApiTokens, Notifiable;
 
     /**
@@ -26,6 +28,7 @@ class User extends Authenticatable
         'password',
         
     ];
+
 
 
     /**

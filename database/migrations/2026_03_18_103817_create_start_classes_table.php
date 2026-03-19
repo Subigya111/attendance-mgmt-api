@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('subject');
             $table->integer('semester');
             $table->foreignId('teacher_id')->constrained('users');
-            // $table->class_token();       
+            $table->string('classToken');       
             });
     }
 
