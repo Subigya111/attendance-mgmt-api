@@ -14,11 +14,12 @@ class AuthenticationController extends Controller
     {
 
          $validated=$request->validated();
-         $user=User::create($validated);
+         $validated['role']='student';
+         User::create($validated);
          return response()->json([
             'message'=>'User registered',
-            'role' => $user['role'],
         ], 201);
+        $user->role="student";
     }
 
       
