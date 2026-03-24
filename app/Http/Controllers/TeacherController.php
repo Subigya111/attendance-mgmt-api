@@ -20,6 +20,9 @@ class TeacherController extends Controller
             'classToken'=>$token
             
         ]);
+        return response()->json([
+            'classToken'=>$token
+        ]);
     }
     public function showAllAttendance(){
 
