@@ -10,7 +10,9 @@ class StartClass extends Model
 {
     protected $fillable=[
         'subject',
-        'semester'
+        'semester',
+        'teacher_id',
+        'classToken'
     ];
     public function teacher():BelongsTo{
         return $this->belongsTo(User::class,'teacher_id');
