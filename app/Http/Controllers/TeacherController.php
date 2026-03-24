@@ -2,12 +2,24 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\ClassRequest;
+use App\Models\StartClass;
 
+use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 class TeacherController extends Controller
 {
-    public function generateQr(){
+    public function createClass(ClassRequest $request){
+        $validated=$request->validated();
+        $token=Str::random(23);
 
+        StartClass::create([
+            'subject'=>$validated['subject'],
+            'semester'=>$validated['semester'],
+            'teacher_id'=>auth()->id,
+            'classToken'=>$token
+            
+        ]);
     }
     public function showAllAttendance(){
 

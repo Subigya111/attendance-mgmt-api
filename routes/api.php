@@ -18,7 +18,7 @@ Route::post('/logout',[AuthenticationController::class,'logout'])->middleware('a
 
 //routes for teacher
 Route::middleware(['auth:sanctum','role:teacher'])->group(function(){
-    Route::post('/class/create',[TeacherController::class,'generateQr']);
+    Route::post('/class/create',[TeacherController::class,'createClass']);
     Route::get('/class/{id}/attendance',[TeacherController::class,'showAllAttendance']);
 });
 
