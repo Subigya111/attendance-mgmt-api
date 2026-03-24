@@ -16,7 +16,7 @@ class TeacherController extends Controller
         StartClass::create([
             'subject'=>$validated['subject'],
             'semester'=>$validated['semester'],
-            'teacher_id'=>auth()->id,
+            'teacher_id'=>auth()->id(),
             'classToken'=>$token
             
         ]);

@@ -17,7 +17,7 @@ Route::post('/login',[AuthenticationController::class,'login']);
 Route::post('/logout',[AuthenticationController::class,'logout'])->middleware('auth:sanctum');
 
 //routes for teacher
-Route::middleware(['auth:sanctum','role:teacher'])->group(function(){
+Route::middleware(['auth:sanctum'])->group(function(){
     Route::post('/class/create',[TeacherController::class,'createClass']);
     Route::get('/class/{id}/attendance',[TeacherController::class,'showAllAttendance']);
 });

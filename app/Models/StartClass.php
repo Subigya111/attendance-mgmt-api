@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class StartClass extends Model
 {
+    public $timestamps = false;
     protected $fillable=[
         'subject',
         'semester',
