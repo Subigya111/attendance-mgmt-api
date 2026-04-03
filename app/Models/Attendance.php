@@ -7,6 +7,11 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Attendance extends Model
 {
+    public $timestamps=false;
+    protected $fillable = [
+        'class_id',
+        'student_id'
+    ];
     public function student():BelongsTo{
         return $this->belongsTo(StartClass::class,'class_id');
     }

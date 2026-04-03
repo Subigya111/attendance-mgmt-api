@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthenticationController;
@@ -16,14 +17,18 @@ Route::post('/register',[AuthenticationController::class,'register']);
 Route::post('/login',[AuthenticationController::class,'login']);
 Route::post('/logout',[AuthenticationController::class,'logout'])->middleware('auth:sanctum');
 
+//route for admin
+Route::middleware(['auth:sanctum','role:admin'])->prefix('admin')->group(function(){
+    Route::post('/make-teacher',[AdminController::class,'makeTeacher']);
+});
 //routes for teacher
-Route::middleware(['auth:sanctum'])->group(function(){
+Route::middleware(['auth:sanctum','role:teacher'])->prefix('teacher')->group(function(){
     Route::post('/class/create',[TeacherController::class,'createClass']);
     Route::get('/class/{id}/attendance',[TeacherController::class,'showAllAttendance']);
 });
 
 //routes for student
-Route::middleware(['auth:sanctum','role:student'])->group(function(){
+Route::middleware(['auth:sanctum','role:student'])->prefix('student')->group(function(){
     Route::post('/attendance/mark',[StudentController::class,'markAttendance']);
     Route::get('/attendance/my',[StudentController::class,'showMyAttendance']);
 });
