@@ -14,7 +14,7 @@ class StudentController extends Controller
         if (!$start_class){
             return response()->json([
                 'message'=>'Could not find the class'
-            ]);
+            ],404);
         }
         Attendance::create([
             'class_id'=>$start_class->id(),
