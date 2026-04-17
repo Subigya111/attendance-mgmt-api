@@ -24,7 +24,15 @@ class TeacherController extends Controller
             'classToken'=>$token
         ]);
     }
-    public function showAllAttendance(){
 
+    public function showAllAttendance(StartClass $startClass){
+        $attendance = $startClass->attendance()
+          ->with('student:id,name,email')
+          ->get();
+          return response()->json([
+            'attendance' => $attendance
+            ], 200);
     }
+
 }
+

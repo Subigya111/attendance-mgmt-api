@@ -24,7 +24,7 @@ Route::middleware(['auth:sanctum','role:admin'])->prefix('admin')->group(functio
 //routes for teacher
 Route::middleware(['auth:sanctum','role:teacher'])->prefix('teacher')->group(function(){
     Route::post('/class/create',[TeacherController::class,'createClass']);
-    Route::get('/class/{id}/attendance',[TeacherController::class,'showAllAttendance']);
+    Route::get('/class/{StartClass}/attendance',[TeacherController::class,'showAllAttendance']);
 });
 
 //routes for student
