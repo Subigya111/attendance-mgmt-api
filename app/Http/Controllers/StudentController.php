@@ -22,6 +22,10 @@ class StudentController extends Controller
         ]);
     }
     public function showMyAttendance(){
-
+        $studentId=auth()->id();
+        $attendance=Attendance::where('student_id',$studentId)->get();
+        return response()->json([
+            'attendance'=>$attendance
+        ],200);
     }
 }

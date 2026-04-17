@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
-    public function makeTeacher(Request $request){  // default maa student chha, admin kasari diney???
+    public function makeTeacher(Request $request){  
         $userId=$request->user_id;
         $user=User::find($userId);
         if(!$user){

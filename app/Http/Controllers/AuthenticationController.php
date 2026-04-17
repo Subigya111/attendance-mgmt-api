@@ -23,7 +23,7 @@ class AuthenticationController extends Controller
          return response()->json([
             'message'=>'User registered',
         ], 201);
-        $user->role="student";
+        // $user->role="student";
     }
 
       
