@@ -23,14 +23,14 @@ Route::middleware(['auth:sanctum','role:admin'])->prefix('admin')->group(functio
 });
 //routes for teacher
 Route::middleware(['auth:sanctum','role:teacher'])->prefix('teacher')->group(function(){
-    Route::post('/class/create',[TeacherController::class,'createClass']);
+    Route::post('/create-class',[TeacherController::class,'createClass']);
     Route::get('/class/{StartClass}/attendance',[TeacherController::class,'showAllAttendance']);
 });
 
 //routes for student
 Route::middleware(['auth:sanctum','role:student'])->prefix('student')->group(function(){
-    Route::post('/attendance/mark',[StudentController::class,'markAttendance']);
-    Route::get('/attendance/my',[StudentController::class,'showMyAttendance']);
+    Route::post('/mark-attendance',[StudentController::class,'markAttendance']);
+    Route::get('/my-attendance',[StudentController::class,'showMyAttendance']);
 });
 
 
