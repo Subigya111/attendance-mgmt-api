@@ -25,10 +25,6 @@ class AuthenticationController extends Controller
         ], 201);
         // $user->role="student";
     }
-
-      
-
-
     public function login(LoginRequest $request)
     {
         $validated=$request->validated();
@@ -44,8 +40,6 @@ class AuthenticationController extends Controller
         ],200);
         
     }
-
-   
     public function logout(Request $request)
     {
         $request->user()->tokens()->delete();

@@ -25,9 +25,15 @@ class TeacherController extends Controller
         ]);
     }
 
-    public function showAllAttendance(StartClass $startClass){
-        $attendance = $startClass->attendance()
-          ->with('student:id,name,email')
+    public function showAllAttendance($id){
+        $startClass = StartClass::find($id);
+        if(!$startClass){
+            return response()->json([
+                'message'=>'Class not found'
+            ],404);
+        }
+        $attendance=$startClass->attendance()
+          ->with('studentattendance:id,name,email')
           ->get();
           return response()->json([
             'attendance' => $attendance
